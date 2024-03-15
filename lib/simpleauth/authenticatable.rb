@@ -7,7 +7,7 @@ module Simpleauth
     end
 
     def ensure_authenticated
-      if !Simpleauth::Authentication.authenticated?
+      if !Simpleauth.authenticated?(session)
         flash[:alert] = "You need to login to view that page."
         redirect_to new_user_authentication_path
       end
